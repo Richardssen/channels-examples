@@ -30,12 +30,12 @@ def news_collector_sync_view(request):
         else:
             data[name] = response.content.decode("utf-8")
         dt = (datetime.datetime.now() - t1).total_seconds()
-        print('Downloaded "{}" from "{}" in {} [s]'.format(name, link, dt))
+        print(f'Downloaded "{name}" from "{link}" in {dt} [s]')
         max_dt = max(dt, max_dt)
 
     # Work out total time
     dt = (datetime.datetime.now() - t0).total_seconds()
-    print('All downloads completed; elapsed time: {} [s]'.format(dt))
-    print('Slowest download required: {} [s]'.format(max_dt))
+    print(f'All downloads completed; elapsed time: {dt} [s]')
+    print(f'Slowest download required: {max_dt} [s]')
 
     return JsonResponse(data)

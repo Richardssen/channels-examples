@@ -21,4 +21,4 @@ class Room(models.Model):
         Returns the Channels Group name that sockets should subscribe to to get sent
         messages as they are generated.
         """
-        return "room-%s" % self.id
+        return f"room-{self.id}"
